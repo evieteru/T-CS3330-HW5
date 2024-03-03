@@ -13,26 +13,26 @@ public abstract class AbstractPizza {
 	    protected static int orderIDCounter = 0;
 	    protected ICookingStrategy cookingStrategy;
 	    protected double cookingPrice;
+	    
+	    
+	    
+	    public AbstractPizza(List<Toppings> toppingList, double totalPrice,
+				int pizzaOrderID, ICookingStrategy cookingStrategy, double cookingPrice) {
 
-	    public AbstractPizza() {
-	        this.toppingList = new ArrayList<>();
+	    	this.toppingList = new ArrayList<>(toppingList);
 	        this.pizzaOrderID = ++orderIDCounter;
-	    }
+	        
+	        
+			this.totalPrice = totalPrice;
+			this.pizzaOrderID = pizzaOrderID;
+			this.cookingStrategy = cookingStrategy;
+			this.cookingPrice = cookingPrice;
+		}
 
-	    // Abstract methods that subclasses will implement
-	    protected abstract double addToppingsToPrice(double priceWithoutToppings);
-	    public abstract double updatePizzaPrice();
 
-	    
 
-	    @Override
-	    public abstract String toString();
-	    
-	    
-	    
-	    
-
-		public List<Toppings> getToppingList() {
+		//Getters and Setters
+	    public List<Toppings> getToppingList() {
 			return toppingList;
 		}
 
@@ -44,9 +44,9 @@ public abstract class AbstractPizza {
 			return priceWithoutToppings;
 		}
 
-		public void setPriceWithoutToppings(double priceWithoutToppings) {
-			this.priceWithoutToppings = priceWithoutToppings;
-		}
+//		public void setPriceWithoutToppings(double priceWithoutToppings) {
+//			this.priceWithoutToppings = priceWithoutToppings;
+//		}
 
 		public double getTotalPrice() {
 			return totalPrice;
@@ -87,6 +87,22 @@ public abstract class AbstractPizza {
 		public void setCookingPrice(double cookingPrice) {
 			this.cookingPrice = cookingPrice;
 		}
+		
+
+	    //Abstract methods that subclasses will implement
+	    protected abstract double addToppingsToPrice(double priceWithoutToppings);
+	    public abstract double updatePizzaPrice();
+
+	    
+
+	    @Override
+	    public abstract String toString();
+	    
+	    
+	    
+	    
+
+		
 	}
 
 
