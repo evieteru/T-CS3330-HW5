@@ -37,8 +37,12 @@ public class MargheritaPizza extends AbstractPizza {
 
 	@Override
 	protected double addToppingsToPrice(double priceWithoutToppings) {
-		// TODO Auto-generated method stub
-		return 0;
+		totalPrice = priceWithoutToppings;
+		
+		for(Toppings topping : toppingList) {
+			totalPrice = totalPrice + topping.getPrice();
+		}
+		return totalPrice;
 	}
 
 	@Override
