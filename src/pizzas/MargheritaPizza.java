@@ -2,24 +2,34 @@ package pizzas;
 
 import java.util.List;
 
-import Cooking.ICookingStrategy;
+//import Cooking.ICookingStrategy;
 import hw5.Toppings;
+import hw5.CookingStyleType;
 
 public class MargheritaPizza extends AbstractPizza {
 	
 	
 	//Constructor
 		public MargheritaPizza(List<Toppings> toppingList, double priceWithoutToppings,
-	            double totalPrice, int pizzaOrderID, ICookingStrategy cookingStrategy, double cookingPrice) {
+	            double totalPrice, int pizzaOrderID, CookingStyleType cookingStrategy, double cookingPrice) {
 			super(toppingList, totalPrice, pizzaOrderID, cookingStrategy, cookingPrice);
 			
 			this.priceWithoutToppings = 2.50;
 			
 			addDefaultToppings();
 		}
+		
+		//Default Constructor
+		public MargheritaPizza() {
+			super();
+			
+			this.priceWithoutToppings = 2.50;
+			addDefaultToppings();
+		}
+
 
 		//Copy Constructor
-		public MargheritaPizza(HawaiianPizza other) {
+		public MargheritaPizza(MargheritaPizza other) {
 			super(other.getToppingList(), other.getTotalPrice(),
 			   other.getPizzaOrderID(), other.getCookingStrategy(), other.getCookingPrice());
 			
@@ -48,7 +58,6 @@ public class MargheritaPizza extends AbstractPizza {
 	
 	@Override
 	public double updatePizzaPrice() {
-		
 		totalPrice = this.addToppingsToPrice(this.getPriceWithoutToppings());
 		totalPrice += this.getCookingPrice();
 		
@@ -63,6 +72,10 @@ public class MargheritaPizza extends AbstractPizza {
 				+ cookingStrategy + ", cookingPrice=" + cookingPrice + "]";
 	}
 
+	@Override
+	public String toppingToString() {
+		return "Margherita Pizza [Toppings" + toppingList +  "]";
+	}
 
 
 	
