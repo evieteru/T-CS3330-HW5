@@ -2,15 +2,16 @@ package pizzas;
 
 import java.util.List;
 
-import Cooking.ICookingStrategy;
+//import Cooking.ICookingStrategy;
 import hw5.Toppings;
+import hw5.CookingStyleType;
 
 public class MargheritaPizza extends AbstractPizza {
 	
 	
 	//Constructor
 		public MargheritaPizza(List<Toppings> toppingList, double priceWithoutToppings,
-	            double totalPrice, int pizzaOrderID, ICookingStrategy cookingStrategy, double cookingPrice) {
+	            double totalPrice, int pizzaOrderID, CookingStyleType cookingStrategy, double cookingPrice) {
 			super(toppingList, totalPrice, pizzaOrderID, cookingStrategy, cookingPrice);
 			
 			this.priceWithoutToppings = 2.50;

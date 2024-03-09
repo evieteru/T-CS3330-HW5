@@ -1,7 +1,8 @@
 package pizzas;
 import java.util.*;
 
-import Cooking.ICookingStrategy;
+
+//import Cooking.ICookingStrategy;
 import hw5.*;
 
 public abstract class AbstractPizza {
@@ -11,16 +12,16 @@ public abstract class AbstractPizza {
 	    protected double totalPrice;
 	    protected int pizzaOrderID;
 	    protected static int orderIDCounter = 0;
-	    protected ICookingStrategy cookingStrategy;
+	    protected CookingStyleType cookingStrategy;
 	    protected double cookingPrice;
 	    
 	    
 	    // Parameterized Constructor
 	    public AbstractPizza(List<Toppings> toppingList, double totalPrice,
-				int pizzaOrderID, ICookingStrategy cookingStrategy, double cookingPrice) {
+				int pizzaOrderID, CookingStyleType cookingStrategy, double cookingPrice) {
 
 	    	this.toppingList = new ArrayList<>(toppingList);
-	        this.pizzaOrderID = ++orderIDCounter;
+	        ++orderIDCounter;
 	        
 	        
 			this.totalPrice = totalPrice;
@@ -31,8 +32,8 @@ public abstract class AbstractPizza {
 	    
 	    //Default Constructor
 	    public AbstractPizza() {
-	    	this.toppingList = new ArrayList<>(toppingList);
-	        this.pizzaOrderID = ++orderIDCounter;
+	    	this.toppingList = new ArrayList<>();
+	        ++orderIDCounter;
 	    }
 
 
@@ -78,11 +79,11 @@ public abstract class AbstractPizza {
 			AbstractPizza.orderIDCounter = orderIDCounter;
 		}
 
-		public ICookingStrategy getCookingStrategy() {
+		public CookingStyleType getCookingStrategy() {
 			return cookingStrategy;
 		}
 
-		public void setCookingStrategy(ICookingStrategy cookingStrategy) {
+		public void setCookingStrategy(CookingStyleType cookingStrategy) {
 			this.cookingStrategy = cookingStrategy;
 		}
 
@@ -94,6 +95,10 @@ public abstract class AbstractPizza {
 			this.cookingPrice = cookingPrice;
 		}
 		
+		
+		public String toppingToString() {
+			return "HawaiianPizza [Toppings" + toppingList +  "]";
+		}
 
 	    //Abstract methods that subclasses will implement
 	    protected abstract double addToppingsToPrice(double priceWithoutToppings);

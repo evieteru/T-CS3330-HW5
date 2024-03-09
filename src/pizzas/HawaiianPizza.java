@@ -1,7 +1,8 @@
 package pizzas;
 
-import Cooking.ICookingStrategy;
+//import Cooking.ICookingStrategy;
 import hw5.Toppings;
+import hw5.CookingStyleType;
 
 import java.util.*;
 
@@ -11,7 +12,7 @@ public class HawaiianPizza extends AbstractPizza {
 	
 	//Parameterized Constructor
 	public HawaiianPizza(List<Toppings> toppingList, double priceWithoutToppings,
-            double totalPrice, int pizzaOrderID, ICookingStrategy cookingStrategy, double cookingPrice) {
+            double totalPrice, int pizzaOrderID, CookingStyleType cookingStrategy, double cookingPrice) {
 		super(toppingList, totalPrice, pizzaOrderID, cookingStrategy, cookingPrice);
 		
 		this.priceWithoutToppings = 3.0; //Initialize separately as it is different in every subclass

@@ -6,6 +6,11 @@ import hw5.PizzaType;
 import pizzas.*;
 
 public class PizzaCookingFactory {
+	
+	//Default constructor
+	public PizzaCookingFactory () {
+		
+	}
 
 	public AbstractPizza createPizza(PizzaType pizzaType) {
 
@@ -20,6 +25,7 @@ public class PizzaCookingFactory {
 	
 			return newHawaiian;
 			
+			
 		case PizzaType.MARGHERITA:
 			MargheritaPizza newMargherita = new MargheritaPizza();
 			
@@ -27,6 +33,7 @@ public class PizzaCookingFactory {
 			newMargherita.setPizzaOrderID(temp2);
 	
 			return newMargherita;
+			
 			
 		case PizzaType.SUPREME:
 			SupremePizza newSupreme = new SupremePizza();
@@ -36,6 +43,7 @@ public class PizzaCookingFactory {
 	
 			return newSupreme;
 			
+			
 		case PizzaType.VEGETARIAN:
 			MargheritaPizza newVegetarian = new MargheritaPizza();
 			
@@ -44,13 +52,11 @@ public class PizzaCookingFactory {
 	
 			return newVegetarian;
 			
+			
 		default:
 			return null;
-			
-			
-			
-		
 		}
+		
 	}
 		
 }

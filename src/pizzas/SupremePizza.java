@@ -1,8 +1,9 @@
 package pizzas;
 
 import java.util.List;
+import hw5.CookingStyleType;
 
-import Cooking.ICookingStrategy;
+//import Cooking.ICookingStrategy;
 import hw5.Toppings;
 
 public class SupremePizza extends AbstractPizza {
@@ -10,7 +11,7 @@ public class SupremePizza extends AbstractPizza {
 	
 	//Constructor
 		public SupremePizza(List<Toppings> toppingList, double priceWithoutToppings,
-	            double totalPrice, int pizzaOrderID, ICookingStrategy cookingStrategy, double cookingPrice) {
+	            double totalPrice, int pizzaOrderID, CookingStyleType cookingStrategy, double cookingPrice) {
 			super(toppingList, totalPrice, pizzaOrderID, cookingStrategy, cookingPrice);
 			
 			this.priceWithoutToppings = 3.50;
