@@ -96,13 +96,12 @@ public abstract class AbstractPizza {
 		}
 		
 		
-		public String toppingToString() {
-			return "HawaiianPizza [Toppings" + toppingList +  "]";
-		}
+	
 
 	    //Abstract methods that subclasses will implement
 	    protected abstract double addToppingsToPrice(double priceWithoutToppings);
 	    public abstract double updatePizzaPrice();
+	    public abstract String toppingToString(); 
 
 	    
 

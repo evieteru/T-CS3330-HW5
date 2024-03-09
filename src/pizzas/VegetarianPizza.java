@@ -75,5 +75,10 @@ public class VegetarianPizza extends AbstractPizza {
 				+ ", totalPrice=" + totalPrice + ", pizzaOrderID=" + pizzaOrderID + ", cookingStrategy="
 				+ cookingStrategy + ", cookingPrice=" + cookingPrice + "]";
 	}
+	
+	@Override
+	public String toppingToString() {
+		return "Vegetarian Pizza [Toppings" + toppingList +  "]";
+	}
 
 }

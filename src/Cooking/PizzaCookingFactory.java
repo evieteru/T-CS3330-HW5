@@ -45,7 +45,7 @@ public class PizzaCookingFactory {
 			
 			
 		case PizzaType.VEGETARIAN:
-			MargheritaPizza newVegetarian = new MargheritaPizza();
+			VegetarianPizza newVegetarian = new VegetarianPizza();
 			
 			int temp4 = AbstractPizza.getOrderIDCounter();
 			newVegetarian.setPizzaOrderID(temp4);

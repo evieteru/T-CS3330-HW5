@@ -10,10 +10,14 @@ public class BrickOvenCookingStrategy implements ICookingStrategy{
 			
 			if(pizza != null) {
 				
-				pizza.setCookingStrategy(CookingStyleType.CONVENTIONAL_OVEN);
+				pizza.setCookingStrategy(CookingStyleType.BRICK_OVEN);
 				
 				pizza.setCookingPrice(10.0);
 				pizza.updatePizzaPrice();
+				
+				System.out.println("You selected Brick Oven!");
+				System.out.println("The new price of your " + pizza.getClass().getSimpleName() + " is " 
+				                   + pizza.getTotalPrice());
 			
 			return true;
 			

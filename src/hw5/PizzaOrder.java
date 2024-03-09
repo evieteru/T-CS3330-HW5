@@ -9,7 +9,7 @@ import pizzas.AbstractPizza;
 public class PizzaOrder {
 	
 	private PizzaCookingFactory pizzaFactory;
-	private ICookingStrategy cookingStrategy;
+	//private ICookingStrategy cookingStrategy;
 	private List<AbstractPizza> pizzaOrderList;
 	
 	
@@ -78,13 +78,18 @@ public class PizzaOrder {
 		 boolean ans = pizza.getToppingList().contains(topping);
 		 
 		 if(ans) {
+			 System.out.println("You already have " + topping + ".");
+			 return ans; 
+		 }
+		 
+		 else {
 			 pizza.getToppingList().add(topping);
 			 pizza.updatePizzaPrice();
+			 
+			 System.out.println("Added " + topping);
+			 System.out.println("New price: " + pizza.getTotalPrice());
 			 return ans;
-		 }
-		 else {
-			 System.out.println("You already have that topping.");
-			 return ans;
+			 
 		 } 
 	 }
 	 
@@ -98,6 +103,9 @@ public class PizzaOrder {
 		 if(ans) {
 			 pizza.getToppingList().remove(topping);
 			 pizza.updatePizzaPrice();
+			 
+			 System.out.println("You removed " + topping);
+			 System.out.println("New price: " + pizza.getTotalPrice());
 			 return ans;
 		 }
 		 else {
@@ -143,19 +151,21 @@ public class PizzaOrder {
 		 
 		 switch (cookingStrategyType) {
 		 	case BRICK_OVEN:
-		 		cookingStrategy = new BrickOvenCookingStrategy();
-		 		break;
-		 	case CONVENTIONAL_OVEN:
-		 		cookingStrategy = new BrickOvenCookingStrategy();
-		 		break;
-		 	case MICROWAVE:
-		 		cookingStrategy = new BrickOvenCookingStrategy();
-		 		break;
+		 		BrickOvenCookingStrategy cookingStrategy1 = new BrickOvenCookingStrategy();
+		 		cookingStrategy1.cook(pizza);
+		 		return true;
 		 		
-		 }
-		 			
-		 if(cookingStrategy != null) {
-			 return cookingStrategy.cook(pizza);
+		 	case CONVENTIONAL_OVEN:
+		 		ConventionalOvenCookingStrategy cookingStrategy2 = new ConventionalOvenCookingStrategy();
+		 		cookingStrategy2.cook(pizza);
+		 		return true;
+		 		
+		 	case MICROWAVE:
+		 		MicrowaveOvenCookingStrategy cookingStrategy3 = new MicrowaveOvenCookingStrategy();
+		 		cookingStrategy3.cook(pizza);
+		 		return true;
+		 		
+		
 		 }
 		 	
 		 return false;	
@@ -164,23 +174,6 @@ public class PizzaOrder {
 		 
 		 
 		 
-		 
-		 
-	 
-	 
-	 
-	 
-	 
-	
-	
-	
-	
-	
-	
-	
-	
-		
-		
 		
 		
 		
@@ -194,11 +187,21 @@ public class PizzaOrder {
 		
 		return null;
 	}
+
 	
 	
-	public void changeStrategy(ICookingStrategy cookingStrategy) {
-		this.cookingStrategy = cookingStrategy;
+//Getters and Setters
+	public List<AbstractPizza> getPizzaOrderList() {
+		return pizzaOrderList;
 	}
+	
+
+
+	
+	
+	
+	
+	
 		
 		
 		

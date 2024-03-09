@@ -29,7 +29,7 @@ public class MargheritaPizza extends AbstractPizza {
 
 
 		//Copy Constructor
-		public MargheritaPizza(HawaiianPizza other) {
+		public MargheritaPizza(MargheritaPizza other) {
 			super(other.getToppingList(), other.getTotalPrice(),
 			   other.getPizzaOrderID(), other.getCookingStrategy(), other.getCookingPrice());
 			
@@ -72,6 +72,10 @@ public class MargheritaPizza extends AbstractPizza {
 				+ cookingStrategy + ", cookingPrice=" + cookingPrice + "]";
 	}
 
+	@Override
+	public String toppingToString() {
+		return "Margherita Pizza [Toppings" + toppingList +  "]";
+	}
 
 
 	

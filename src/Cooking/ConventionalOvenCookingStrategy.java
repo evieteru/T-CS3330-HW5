@@ -14,6 +14,10 @@ public class ConventionalOvenCookingStrategy {
 			pizza.setCookingPrice(8.0);
 			pizza.updatePizzaPrice();
 		
+			System.out.println("You selected Conventional Oven.");
+			System.out.println("The new price of your " + pizza.getClass().getSimpleName() + " is " 
+			                   + pizza.getTotalPrice());
+			
 		return true;
 		
 		}

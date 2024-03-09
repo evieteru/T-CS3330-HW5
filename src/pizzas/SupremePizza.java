@@ -76,6 +76,10 @@ public class SupremePizza extends AbstractPizza {
 				+ cookingStrategy + ", cookingPrice=" + cookingPrice + "]";
 	}
 
+	@Override
+	public String toppingToString() {
+		return "Supreme Pizza [Toppings" + toppingList +  "]";
+	}
 	
 
 }

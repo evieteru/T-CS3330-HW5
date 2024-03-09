@@ -76,6 +76,10 @@ public class HawaiianPizza extends AbstractPizza {
 				+ cookingStrategy + ", cookingPrice=" + cookingPrice + "]";
 	}
 
+	@Override
+	public String toppingToString() {
+		return "Hawaiian Pizza [Toppings" + toppingList +  "]";
+	}
 	
 
 }
