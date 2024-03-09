@@ -176,7 +176,7 @@ public class PizzaOrder {
 		 
 		
 		
-		
+	//Helper functions	
 	private AbstractPizza findPizzaByOrderID(int orderID) {
 		
 		for(AbstractPizza pizza : pizzaOrderList) {
@@ -196,16 +196,7 @@ public class PizzaOrder {
 	}
 	
 
-
 	
-	
-	
-	
-	
-		
-		
-		
-		
 		
 }
 	

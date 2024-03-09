@@ -23,13 +23,13 @@ public class VegetarianPizza extends AbstractPizza {
 		public VegetarianPizza() {
 			super();
 			
-			this.priceWithoutToppings = 3.0;
+			this.priceWithoutToppings = 1.50;
 			addDefaultToppings();
 		}
 
 
 		//Copy Constructor
-		public VegetarianPizza(HawaiianPizza other) {
+		public VegetarianPizza(VegetarianPizza other) {
 			super(other.getToppingList(), other.getTotalPrice(),
 			   other.getPizzaOrderID(), other.getCookingStrategy(), other.getCookingPrice());
 			

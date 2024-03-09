@@ -23,7 +23,7 @@ public class MargheritaPizza extends AbstractPizza {
 		public MargheritaPizza() {
 			super();
 			
-			this.priceWithoutToppings = 3.0;
+			this.priceWithoutToppings = 2.50;
 			addDefaultToppings();
 		}
 
