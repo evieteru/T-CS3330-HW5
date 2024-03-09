@@ -51,13 +51,19 @@ public class HawaiianPizza extends AbstractPizza {
 	@Override
 	public double updatePizzaPrice() {
 		
-		return 0;
+		totalPrice = this.addToppingsToPrice(this.getPriceWithoutToppings());
+		totalPrice += this.getCookingPrice();
+		
+		return totalPrice;
 	}
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return "HawaiianPizza [toppingList=" + toppingList + ", priceWithoutToppings=" + priceWithoutToppings
+				+ ", totalPrice=" + totalPrice + ", pizzaOrderID=" + pizzaOrderID + ", cookingStrategy="
+				+ cookingStrategy + ", cookingPrice=" + cookingPrice + "]";
 	}
+
+	
 
 }

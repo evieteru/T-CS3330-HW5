@@ -53,14 +53,19 @@ public class SupremePizza extends AbstractPizza {
 
 	@Override
 	public double updatePizzaPrice() {
-		// TODO Auto-generated method stub
-		return 0;
+		totalPrice = this.addToppingsToPrice(this.getPriceWithoutToppings());
+		totalPrice += this.getCookingPrice();
+		
+		return totalPrice;
 	}
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return "SupremePizza [toppingList=" + toppingList + ", priceWithoutToppings=" + priceWithoutToppings
+				+ ", totalPrice=" + totalPrice + ", pizzaOrderID=" + pizzaOrderID + ", cookingStrategy="
+				+ cookingStrategy + ", cookingPrice=" + cookingPrice + "]";
 	}
+
+	
 
 }
