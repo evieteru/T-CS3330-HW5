@@ -1,8 +1,9 @@
 package pizzas;
 
 import java.util.List;
+import hw5.CookingStyleType;
 
-import Cooking.ICookingStrategy;
+//import Cooking.ICookingStrategy;
 import hw5.Toppings;
 
 public class VegetarianPizza extends AbstractPizza {
@@ -10,16 +11,25 @@ public class VegetarianPizza extends AbstractPizza {
 	
 	//Constructor
 		public VegetarianPizza(List<Toppings> toppingList, double priceWithoutToppings,
-	            double totalPrice, int pizzaOrderID, ICookingStrategy cookingStrategy, double cookingPrice) {
+	            double totalPrice, int pizzaOrderID, CookingStyleType cookingStrategy, double cookingPrice) {
 			super(toppingList, totalPrice, pizzaOrderID, cookingStrategy, cookingPrice);
 			
 			this.priceWithoutToppings = 1.50;
 			
 			addDefaultToppings();
 		}
+		
+		//Default Constructor
+		public VegetarianPizza() {
+			super();
+			
+			this.priceWithoutToppings = 1.50;
+			addDefaultToppings();
+		}
+
 
 		//Copy Constructor
-		public VegetarianPizza(HawaiianPizza other) {
+		public VegetarianPizza(VegetarianPizza other) {
 			super(other.getToppingList(), other.getTotalPrice(),
 			   other.getPizzaOrderID(), other.getCookingStrategy(), other.getCookingPrice());
 			
@@ -64,6 +74,11 @@ public class VegetarianPizza extends AbstractPizza {
 		return "VegetarianPizza [toppingList=" + toppingList + ", priceWithoutToppings=" + priceWithoutToppings
 				+ ", totalPrice=" + totalPrice + ", pizzaOrderID=" + pizzaOrderID + ", cookingStrategy="
 				+ cookingStrategy + ", cookingPrice=" + cookingPrice + "]";
+	}
+	
+	@Override
+	public String toppingToString() {
+		return "Vegetarian Pizza [Toppings" + toppingList +  "]";
 	}
 
 }
