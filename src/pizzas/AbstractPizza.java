@@ -15,7 +15,7 @@ public abstract class AbstractPizza {
 	    protected double cookingPrice;
 	    
 	    
-	    
+	    // Parameterized Constructor
 	    public AbstractPizza(List<Toppings> toppingList, double totalPrice,
 				int pizzaOrderID, ICookingStrategy cookingStrategy, double cookingPrice) {
 
@@ -28,6 +28,12 @@ public abstract class AbstractPizza {
 			this.cookingStrategy = cookingStrategy;
 			this.cookingPrice = cookingPrice;
 		}
+	    
+	    //Default Constructor
+	    public AbstractPizza() {
+	    	this.toppingList = new ArrayList<>(toppingList);
+	        this.pizzaOrderID = ++orderIDCounter;
+	    }
 
 
 

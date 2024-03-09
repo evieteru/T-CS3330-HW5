@@ -17,6 +17,15 @@ public class SupremePizza extends AbstractPizza {
 			
 			addDefaultToppings();
 		}
+		
+		//Default Constructor
+		public SupremePizza() {
+			super();
+			
+			this.priceWithoutToppings = 3.0;
+			addDefaultToppings();
+		}
+
 
 		//Copy Constructor
 		public SupremePizza(HawaiianPizza other) {

@@ -1,5 +1,7 @@
 package Cooking;
 
-public class BrickOvenCookingStrategy {
+public class BrickOvenCookingStrategy{
+	
+	
 
 }

@@ -17,6 +17,15 @@ public class MargheritaPizza extends AbstractPizza {
 			
 			addDefaultToppings();
 		}
+		
+		//Default Constructor
+		public MargheritaPizza() {
+			super();
+			
+			this.priceWithoutToppings = 3.0;
+			addDefaultToppings();
+		}
+
 
 		//Copy Constructor
 		public MargheritaPizza(HawaiianPizza other) {
@@ -48,7 +57,6 @@ public class MargheritaPizza extends AbstractPizza {
 	
 	@Override
 	public double updatePizzaPrice() {
-		
 		totalPrice = this.addToppingsToPrice(this.getPriceWithoutToppings());
 		totalPrice += this.getCookingPrice();
 		

@@ -9,13 +9,22 @@ public class HawaiianPizza extends AbstractPizza {
 	
 
 	
-	//Constructor
+	//Parameterized Constructor
 	public HawaiianPizza(List<Toppings> toppingList, double priceWithoutToppings,
             double totalPrice, int pizzaOrderID, ICookingStrategy cookingStrategy, double cookingPrice) {
 		super(toppingList, totalPrice, pizzaOrderID, cookingStrategy, cookingPrice);
 		
 		this.priceWithoutToppings = 3.0; //Initialize separately as it is different in every subclass
 		
+		addDefaultToppings();
+		
+	}
+	
+	//Default Constructor
+	public HawaiianPizza() {
+		super();
+		
+		this.priceWithoutToppings = 3.0;
 		addDefaultToppings();
 	}
 
@@ -27,6 +36,8 @@ public class HawaiianPizza extends AbstractPizza {
 		this.priceWithoutToppings = 3.0;
 		
 		addDefaultToppings();
+		
+		
 	}
 	
 	private void addDefaultToppings() {
