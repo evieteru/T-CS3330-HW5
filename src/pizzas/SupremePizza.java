@@ -29,7 +29,7 @@ public class SupremePizza extends AbstractPizza {
 
 
 		//Copy Constructor
-		public SupremePizza(HawaiianPizza other) {
+		public SupremePizza(VegetarianPizza other) {
 			super(other.getToppingList(), other.getTotalPrice(),
 			   other.getPizzaOrderID(), other.getCookingStrategy(), other.getCookingPrice());
 			
