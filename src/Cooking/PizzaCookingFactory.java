@@ -7,20 +7,6 @@ public class PizzaCookingFactory {
 
 	public AbstractPizza createPizza(PizzaType pizzaType) {
 		
-		switch (pizzaType) {
-		case PizzaType.HAWAIIAN:
-			HawaiianPizza newHawaiian = new Hawaiian()
-			
-		case PizzaType.MARGHERITA:
-			
-		case PizzaType.SUPREME:
-			
-		case PizzaType.VEGETARIAN:
-			
-
-			
-			
-		}
 	}
 		
 }
