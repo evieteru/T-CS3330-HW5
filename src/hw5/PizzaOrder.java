@@ -6,7 +6,7 @@ public class PizzaOrder {
 	List<AbstractPizza> pizzaOrderList;
 	public PizzaOrder() {
 		pizzaFactory = new PizzaCookingFactory(); 
-		pizzaOrderList = new ArrayList<AbstractPizza>();
+		pizzaOrderList = new ArrayList<>();
 	}
 	
 	/**
@@ -15,6 +15,49 @@ public class PizzaOrder {
 	 * @param topping
 	 * @return boolean, false if topping not found in list/pizza not found. True otherwise
 	 */
+	public AbstractPizza getPizzaByOrderID(int orderID) {
+        	for (AbstractPizza pizza : pizzaOrderList) {
+            		if (pizza.getOrderID() == orderID) {
+                		return pizza;
+            		}
+        	}
+        	return null;
+    	}
+	public boolean addPizzaToCart(PizzaType pizzaType) {
+               	AbstractPizza newPizza = pizzaFactory.createPizza(pizzaType);
+        	if (newPizza != null) {
+            		pizzaOrderList.add(newPizza);
+            		return true;
+        	}
+        	return false;
+    	}
+
+    	public boolean addNewToppingToPizza(int orderID, Toppings topping) {
+        	AbstractPizza pizza = getPizzaByOrderID(orderID);
+        	if (pizza != null && !pizza.getToppingList().contains(topping)) {
+            		pizza.getToppingList().add(topping);
+            		pizza.updatePizzaPrice(); // Assuming this method exists to update price based on toppings
+            		return true;
+        	}
+        	return false;
+    	}
+
+
+	public boolean removeToppingFromPizza(int orderID, Toppings topping) {
+		AbstractPizza foundedPizza = getPizzaByOrderID(orderID);
+		if(foundedPizza != null) {
+			if (foundedPizza.toppingList.contains(topping)) {
+				foundedPizza.getToppingList().remove(topping);
+				foundedPizza.updatePizzaPrice();
+				System.out.println("You removed " + topping);
+				System.out.println("New price: " + foundedPizza.getTotalPrice());
+				return true;
+			}
+			System.out.println("Topping not found");
+		}
+		return false;
+	}
+
 	public void printListOfToppingsByPizzaOrderID(int orderID) {
     		AbstractPizza pizza = getPizzaByOrderID(orderID);
     		if (pizza != null) {
@@ -35,21 +78,7 @@ public class PizzaOrder {
 	}
 
 	
-	public boolean removeToppingFromPizza(int orderID, Toppings topping) {
-		AbstractPizza foundedPizza = getPizzaByOrderID(orderID);
-		if(foundedPizza != null) {
-			if (foundedPizza.toppingList.contains(topping)) {
-				foundedPizza.getToppingList().remove(topping);
-				foundedPizza.updatePizzaPrice();
-				System.out.println("You removed " + topping);
-				System.out.println("New price: " + foundedPizza.getTotalPrice());
-				return true;
-			}
-			System.out.println("Topping not found");
-		}
-		return false;
-	}
-
+	
 	/**
  	* checks the pizzas in the pizzaOrderList and checks their cooking strategies. It returns true if there are any pizzas without any assigned pizza cooking strategy. It returns false if there are no pizzas without an assigned cooking strategy.
  	* @return boolean, false if no pizza in list is raw, else true if a pizza is raw
