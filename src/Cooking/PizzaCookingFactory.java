@@ -4,6 +4,10 @@ import hw5.PizzaType;
 import pizzas.AbstractPizza;
 
 public class PizzaCookingFactory {
+	
+	/* This function takes in a pizza type argument and instantiates a
+	 * new pizza depending on the type. It also assigns a unique order ID
+	 * to the pizza. */
 	public AbstractPizza createPizza(PizzaType pizzaType) {
 		
 		switch(pizzaType) {
