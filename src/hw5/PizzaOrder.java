@@ -15,6 +15,26 @@ public class PizzaOrder {
 	 * @param topping
 	 * @return boolean, false if topping not found in list/pizza not found. True otherwise
 	 */
+	public void printListOfToppingsByPizzaOrderID(int orderID) {
+    		AbstractPizza pizza = getPizzaByOrderID(orderID);
+    		if (pizza != null) {
+        		System.out.println("Toppings for Pizza Order ID " + orderID + ":");
+        		for (Toppings topping : pizza.getToppingList()) {
+            			System.out.println(topping.name());
+	        	}
+    		} else {
+        		System.out.println("No pizza found with Order ID: " + orderID);
+    		}
+	}
+
+	public void printPizzaOrderCart() {
+    		System.out.println("Pizza Order Cart Contents:");
+    		for (AbstractPizza pizza : pizzaOrderList) { // Check the list if it is toString
+        		System.out.println(pizza);
+		}
+	}
+
+	
 	public boolean removeToppingFromPizza(int orderID, Toppings topping) {
 		AbstractPizza foundedPizza = getPizzaByOrderID(orderID);
 		if(foundedPizza != null) {
